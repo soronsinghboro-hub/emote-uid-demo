@@ -1,1 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emote UID Demo</title>
 
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 30px 15px;
+    }
+
+    .box {
+      max-width: 400px;
+      margin: auto;
+      padding: 25px;
+      background: #222;
+      border-radius: 18px;
+    }
+
+    input, select, button {
+      width: 90%;
+      padding: 13px;
+      margin: 10px 0;
+      border: 0;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <h1>🎮 Emote Sender</h1>
+
+    <input id="uid" type="text" placeholder="Enter Player UID">
+
+    <select id="emote">
+      <option value="Dance">💃 Dance</option>
+      <option value="Laugh">😂 Laugh</option>
+      <option value="Wave">👋 Wave</option>
+      <option value="Heart">❤️ Heart</option>
+    </select>
+
+    <button onclick="sendEmote()">SEND EMOTE</button>
+
+    <div id="message"></div>
+  </div>
+
+  <script>
+    function sendEmote() {
+      const uid = document.getElementById("uid").value.trim();
+      const emote = document.getElementById("emote").value;
+      const message = document.getElementById("message");
+
+      if (uid === "") {
+        message.innerText = "⚠️ Pehle UID enter karo!";
+        return;
+      }
+
+      message.innerText =
+        "✅ Demo: " + emote + " emote selected for UID " + uid;
+    }
+  </script>
+
+</body>
+</html>
